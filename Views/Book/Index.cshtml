@@ -1,0 +1,16 @@
+﻿@model Book
+@{
+    ViewData["Title"] = "Подробнее о книге";
+}
+
+<div class="card" style="width: 18rem;">
+    <img src="@Model.PathImage" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text">@Model.Description</p>
+        <p class="card-subtitle">@Model.Author.</p>
+        <p class="card-subtitle">@Model.Id</p>
+        <a href="/Home/Catalog" class="btn btn-primary">В каталог</a>
+    </div>
+</div>
+
