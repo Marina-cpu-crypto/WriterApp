@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnLineShop2026.Data;
 using WriterApp.Data;
 using WriterApp.Models;
 

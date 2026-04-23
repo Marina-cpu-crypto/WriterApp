@@ -1,6 +1,6 @@
 ﻿using WriterApp.Models;
 
-namespace OnLineShop2026.Data
+namespace WriterApp.Data
 {
     public interface IBookRepository
     {
