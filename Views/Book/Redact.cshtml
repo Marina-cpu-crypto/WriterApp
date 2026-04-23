@@ -1,0 +1,40 @@
+﻿@model Book
+
+@{
+    ViewData["Title"] = "Подробнее о книге";
+}
+
+
+<div >
+    <p>
+        <label>Название</label> <input type="text" placeholder="@Model.Name" style="width:auto;" />
+    </p>
+    <div style="display:flex; flex-direction:row">
+        <p>
+            <label>Текст</label><br />
+            <input type="text" style="height:400px; width:800px; margin-inline:60px;" /><br />
+            <a class="btn btn-outline-success"
+               asp-controller=""
+               asp-action="Save">
+                Сохранить изменения
+            </a>
+
+        </p>
+
+        <div class="w-30">
+            <p>
+                <label>Текущее описание сюжета</label><br />
+                <input type="text" style="width:350px; height:200px;" />
+            </p>
+            <p>
+                <label>Изображение-обложка</label><br />
+                <img src="@Model.PathImage" style="width:350px; height:350px; margin:30px;" />
+                <button style="margin:30px;">Изменить</button>
+            </p>
+        </div>
+    </div>
+    
+</div>
+
+
+

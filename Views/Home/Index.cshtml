@@ -1,8 +1,47 @@
-﻿@{
+﻿@model List<Collection>
+
+@{
     ViewData["Title"] = "Home Page";
+
+    // List<Book> list = new List<Book>();
+
+    // @foreach (Collection item in @Model)
+    // {
+    //     foreach (Book book in item.Books)
+    //     {
+    //         if (!list.Contains(book)) list.Add(book);
+    //     }
+    // }
+
+    // Book MainBook = new Book("","","");
+
+    // @foreach (Book book1 in @list)
+    // {
+    //     if (book1.Id == @ViewBag.MainId) MainBook = book1;
+    // }
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div style="display:flex; flex-direction:row;">
+    <div class="text-center" style="width: 18rem; margin-inline: 2rem">
+        @foreach (Collection item in @Model)
+        {
+            <p class="list-group-item">@item.Name</p>
+            foreach (Book book in item.Books)
+            {
+                <a class="btn btn-primary" 
+                   style="margin: 20px; width:300px;"
+                   asp-controller="Book"
+                   asp-action="Index"
+                   asp-route-id="@book.Id">@book.Name</a>
+            }
+        }
+
+        <input placeholder="Название" />
+        <a class="btn btn-primary"
+           style="margin: 20px; width:300px;"
+           asp-controller="Home"
+           asp-action="AddNew">Добавить новый рассказ</a>
+
 </div>
+

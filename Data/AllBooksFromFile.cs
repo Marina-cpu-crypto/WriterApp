@@ -1,9 +1,10 @@
-﻿using System.Text.Json;
+﻿using OnLineShop2026.Data;
+using System.Text.Json;
 using WriterApp.Models;
 
 namespace WriterApp.Data
 {
-    public class AllBooksFromFile
+    public class AllBooksFromFile : IBookRepository
     {
         private static List<Book> products = new List<Book>();
 

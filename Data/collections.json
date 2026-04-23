@@ -1,4 +1,30 @@
 [
-  "В процессе",
-  "Завершено"
+  {
+    "Id": "0",
+    "Name": "В процессе",
+    "Books": [
+      {
+        "Id": "8541406F-951D-4491-9B33-E710A7117929",
+        "Name": "Ghost",
+        "Description": "Military man",
+        "Author": "Noname Artist",
+        "PathImage": "/images/mini-Ghost.jpg"
+      }
+    ],
+    "Amount": 0
+  },
+  {
+    "Id": "1",
+    "Name": "Завершено",
+    "Books": [
+      {
+        "Id": "8541406F-951D-4491-9B33-E710A7117928",
+        "Name": "Мцыри",
+        "Description": "Одна из луччих поэм о Кавказе",
+        "Author": "М.Ю. Лермонтов",
+        "PathImage": "/images/Mziry.png"
+      }
+    ],
+    "Amount": 0
+  }
 ]

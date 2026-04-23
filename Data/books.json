@@ -4,6 +4,25 @@
     "Name": "Мцыри",
     "Description": "Одна из луччих поэм о Кавказе",
     "Author": "М.Ю. Лермонтов",
-    "PathImage": "/images/Mziry.png"
+    "IsDone": false,
+    "PathImage": "/images/Mziry.png",
+    "Matherials": [
+      [ "Royalty" ],
+      [ "Изображения нет" ],
+      ["Ссылок нет"]
+    ]
+  },
+  {
+    "Id": "8541406F-951D-4491-9B33-E710A7117929",
+    "Name": "Ghost",
+    "Description": "Military man",
+    "Author": "rtist",
+    "IsDone": false,
+    "PathImage": "/images/mini-Ghost.jpg",
+    "Matherials": [
+      [],
+      [],
+      []
+    ]
   }
 ]

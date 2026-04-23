@@ -1,16 +1,60 @@
 ﻿@model Book
 @{
     ViewData["Title"] = "Подробнее о книге";
+    string status;
+
+    
+    if (@Model.IsDone) status = "Завершён";
+    else status = "В процессе";
 }
 
-<div class="card" style="width: 18rem;">
+
+
+@* <div class="card" style="width: 18rem;">
     <img src="@Model.PathImage" class="card-img-top" alt="...">
     <div class="card-body">
-        <h5 class="card-title">@Model.Name</h5>
+        <h5 class="card-title">@name</h5>
         <p class="card-text">@Model.Description</p>
         <p class="card-subtitle">@Model.Author.</p>
         <p class="card-subtitle">@Model.Id</p>
         <a href="/Home/Catalog" class="btn btn-primary">В каталог</a>
     </div>
-</div>
+    @* @foreach(List<string> list in Model.Matherials)
+    {
+        @foreach (string mat in list)
+        {
+            <p>@mat.ToString()</p>
+        }
+    } 
+</div> *@
+
+    <div>
+
+        <div style="width: 40rem; margin-inline: 2rem; display:flex; flex-direction:row">
+            <div style="width: 18rem; margin-inline: 2rem">
+            <h3 style="width: 300px;">@Model.Name</h3>
+                <p>Количество слов:</p>
+                <p>Даты работы:</p>
+                <p>Кратко сюжет:</p>
+                <input style="width:300px; height:100px;">
+            </div>
+        <img style="width:400px; height:400px; margin-inline: 2rem;" src="@Model.PathImage">
+        </div>
+
+        <div style="display:flex; flex-direction:column;">
+            <p>Ознакомительное начало текста:</p>
+            <input style="width:900px; height:100px;">
+
+            <p>@status</p>
+            <a asp-controller="Book"
+           asp-action="ChangeStatus"
+               asp-route-id="@Model.Id">Сменить статус</a><p></p>
+
+            <a class="btn btn-primary"
+            style="margin: 20px; width:300px;"
+            asp-controller="Book"
+            asp-action="Redact"
+            asp-route-id="@Model.Id">Редактировать</a>
+        </div>
+    </div> 
 
