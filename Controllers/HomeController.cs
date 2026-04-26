@@ -12,7 +12,6 @@ namespace WriterApp.Controllers
 
         public IActionResult Index()
         { 
-
             var collections = collectionsRepository.GetAll();
             return View(collections);
         }

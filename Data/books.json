@@ -10,7 +10,7 @@
     "Id": "8541406f-951d-4491-9b33-e710a7117929",
     "Name": "Ghost",
     "Description": "NewDescript",
-    "IsDone": true,
+    "IsDone": false,
     "PathImage": "/images/mini-Ghost.jpg"
   }
 ]

@@ -48,18 +48,18 @@ namespace WriterApp.Data
             {
                 if (books[i].IsDone)
                 {
-                    if (!collections[1].Books.ContainsKey(book.Id))
+                    if (!collections[1].Books.ContainsKey(books[i].Id))
                     {
-                        collections[1].Books.Add(book.Id, book.Name);
+                        collections[1].Books.Add(books[i].Id, books[i].Name);
                         collections[1].Amount++;
                         collections[0].Amount--;
                     }
                 }
                 else
                 {
-                    if (!collections[1].Books.ContainsKey(book.Id))
+                    if (!collections[0].Books.ContainsKey(books[i].Id))
                     {
-                        collections[0].Books.Add(book.Id, book.Name);
+                        collections[0].Books.Add(books[i].Id, books[i].Name);
                         collections[0].Amount++;
                         collections[1].Amount--;
                     }

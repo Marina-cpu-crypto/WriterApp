@@ -30,7 +30,7 @@ namespace WriterApp.Controllers
             var book = bookRepository.TryGetById(id);
             book.IsDone = !book.IsDone;
             bookRepository.Change(book);
-
+            //
             return RedirectToAction("Index", new { id = id });
         }
         
