@@ -1,4 +1,3 @@
-using OnLineShop2026.Data;
 using WriterApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);

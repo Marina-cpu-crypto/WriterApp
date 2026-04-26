@@ -2,10 +2,17 @@
 {
     public class Collection
     {
+        public Collection(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
+
+        public Collection() { }
         public int Id { get; }
         public string Name { get; set; }
-        public int Amount { get; set; }
-        public Book[] Books { get; set; }
+        public int Amount { get; set; } = 0;
+        public Dictionary<Guid,string> Books { get; set; } = new Dictionary<Guid,string>();
 
         
     }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 using WriterApp.Data;
 using WriterApp.Models;
 
@@ -14,9 +15,9 @@ namespace WriterApp.Controllers
             return View(book);
         }
 
-        public BookController(IBookRepository prodRep)
+        public BookController(IBookRepository bookRep)
         {
-            this.bookRepository = prodRep;
+            this.bookRepository = bookRep;
         }
         public IActionResult Redact(Guid id)
         {
@@ -28,9 +29,29 @@ namespace WriterApp.Controllers
         {
             var book = bookRepository.TryGetById(id);
             book.IsDone = !book.IsDone;
+            bookRepository.Change(book);
 
             return RedirectToAction("Index", new { id = id });
         }
         
+        public IActionResult Save(Guid Id, string Name, string bookText, string Description)
+        {
+            Book book = bookRepository.TryGetById(Id);
+
+            if(book.Name != Name)
+            {
+                System.IO.File.Delete("Data/"+book.Name+".txt");
+                book.Name = Name;
+            }
+            //book.bookText = bookText;
+            book.Description = Description;
+
+            string file = "Data/" + Name + ".txt";
+            System.IO.File.WriteAllText(file, bookText);
+
+            bookRepository.Change(book);
+
+            return RedirectToAction("Index", new { id = Id });
+        }
     }
 }

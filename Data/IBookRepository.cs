@@ -6,5 +6,6 @@ namespace WriterApp.Data
     {
         List<Book> GetAll();
         Book? TryGetById(Guid id);
+        void Change(Book book);
     }
 }

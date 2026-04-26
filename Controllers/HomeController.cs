@@ -11,11 +11,7 @@ namespace WriterApp.Controllers
         ICollectionsRepository collectionsRepository;
 
         public IActionResult Index()
-        {
-            if(MainId != Guid.Empty)
-            {
-                ViewBag.MainId = MainId;
-            }
+        { 
 
             var collections = collectionsRepository.GetAll();
             return View(collections);
@@ -25,15 +21,15 @@ namespace WriterApp.Controllers
         {
             this.collectionsRepository = collectRep;
         }
-        public IActionResult SetMain(Guid id)
-        {
-            MainId = id;
-            return RedirectToAction("Index");
-        }
+        //public IActionResult SetMain(Guid id)
+        //{
+        //    MainId = id;
+        //    return RedirectToAction("Index");
+        //}
 
         public IActionResult AddNew()
         {
-            Controller.Json("Ничего");
+            //Controller.Json("Ничего");
             return View();
         }
 

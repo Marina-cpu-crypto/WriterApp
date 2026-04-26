@@ -2,29 +2,31 @@
 
 @{
     ViewData["Title"] = "Подробнее о книге";
+
+    string booktext = "";
+    string file = "Data/" + @Model.Name + ".txt";
+    if (File.Exists(file)) booktext = string.Join(" ", File.ReadLines(file).Take(3));
 }
 
 
-<div >
+<form>
     <p>
-        <label>Название</label> <input type="text" placeholder="@Model.Name" style="width:auto;" />
+        <label>Название</label> <input type="text" value="@Model.Name" style="width:auto;" name="Name"/>
     </p>
     <div style="display:flex; flex-direction:row">
         <p>
             <label>Текст</label><br />
-            <input type="text" style="height:400px; width:800px; margin-inline:60px;" /><br />
-            <a class="btn btn-outline-success"
-               asp-controller=""
-               asp-action="Save">
-                Сохранить изменения
-            </a>
+            <textarea style="height:400px; width:800px; margin-inline:60px;"
+            @* value="@booktext" *@
+            name="bookText"
+            rows="10" cols="50">@booktext</textarea>
 
-        </p>
+            @* <input type="text"  /><br /> *@
 
         <div class="w-30">
             <p>
                 <label>Текущее описание сюжета</label><br />
-                <input type="text" style="width:350px; height:200px;" />
+                <input type="text" style="width:350px; height:200px;" value="@Model.Description" name="Description"/>
             </p>
             <p>
                 <label>Изображение-обложка</label><br />
@@ -33,8 +35,21 @@
             </p>
         </div>
     </div>
+
+    <button class="btn btn-outline-success"
+            type="submit"
+            asp-controller="Book"
+            asp-action="Save"
+            asp-route-Id="@Model.Id">
+     Сохранить изменения </button>
     
-</div>
+</form>
 
 
 
+@* <form>
+    <input type="text" placeholder="@Model.Name" style="width:auto;" name="Name" />
+    <input type="text" style="height:400px; width:800px; margin-inline:60px;" name="bookText" /><br />
+    <input type="text" style="width:350px; height:200px;" name="Description" />
+    <button class="btn btn-outline-success" type="submit" asp-controller="Book" asp-action="Save" asp-route-Id="@Model.Id"> Сохранить изменения </button>
+</form> *@

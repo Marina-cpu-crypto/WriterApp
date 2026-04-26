@@ -3,11 +3,45 @@
     ViewData["Title"] = "Подробнее о книге";
     string status;
 
-    
+
     if (@Model.IsDone) status = "Завершён";
     else status = "В процессе";
+
+    string booktext = "";
+    string file = "Data/" + @Model.Name + ".txt";
+    if(File.Exists(file)) booktext= string.Join(" ",File.ReadLines(file).Take(3));
+
 }
 
+    <div>
+
+        <div style="width: 40rem; margin-inline: 2rem; display:flex; flex-direction:row">
+            <div style="width: 18rem; margin-inline: 2rem">
+            <h3 style="width: 300px;">@Model.Name</h3>
+                <p>Количество слов:</p>
+                <p>Даты работы:</p>
+                <p>Кратко сюжет:</p>
+                <p style="width:300px; height:100px;">@Model.Description</p>
+            </div>
+        <img style="width:400px; height:400px; margin-inline: 2rem;" src="@Model.PathImage">
+        </div>
+
+        <div style="display:flex; flex-direction:column;">
+            <p>Ознакомительное начало текста:</p>
+            <input style="width:900px; height:100px;" value="@booktext" readonly/>
+
+            <p>@status</p>
+            <a asp-controller="Book"
+           asp-action="ChangeStatus"
+               asp-route-id="@Model.Id">Сменить статус</a><p></p>
+
+            <a class="btn btn-primary"
+            style="margin: 20px; width:300px;"
+            asp-controller="Book"
+            asp-action="Redact"
+            asp-route-id="@Model.Id">Редактировать</a>
+        </div>
+    </div> 
 
 
 @* <div class="card" style="width: 18rem;">
@@ -27,34 +61,3 @@
         }
     } 
 </div> *@
-
-    <div>
-
-        <div style="width: 40rem; margin-inline: 2rem; display:flex; flex-direction:row">
-            <div style="width: 18rem; margin-inline: 2rem">
-            <h3 style="width: 300px;">@Model.Name</h3>
-                <p>Количество слов:</p>
-                <p>Даты работы:</p>
-                <p>Кратко сюжет:</p>
-                <input style="width:300px; height:100px;">
-            </div>
-        <img style="width:400px; height:400px; margin-inline: 2rem;" src="@Model.PathImage">
-        </div>
-
-        <div style="display:flex; flex-direction:column;">
-            <p>Ознакомительное начало текста:</p>
-            <input style="width:900px; height:100px;">
-
-            <p>@status</p>
-            <a asp-controller="Book"
-           asp-action="ChangeStatus"
-               asp-route-id="@Model.Id">Сменить статус</a><p></p>
-
-            <a class="btn btn-primary"
-            style="margin: 20px; width:300px;"
-            asp-controller="Book"
-            asp-action="Redact"
-            asp-route-id="@Model.Id">Редактировать</a>
-        </div>
-    </div> 
-
