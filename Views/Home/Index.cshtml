@@ -25,11 +25,18 @@
             }
         }
 
-        <input placeholder="Название" />
-        <a class="btn btn-primary"
+        <form>
+            <input required placeholder="Название" name="Name" />
+            <input required placeholder="Статус" name="IsDone" />
+            <input placeholder="Краткое описание" name="Description" />
+            <input placeholder="" name="PathImage" />
+
+            <button type="submit" asp-controller="Home" asp-action="AddNew">Добавить новый рассказ</button>
+        </form>
+        @* <a class="btn btn-primary"
            style="margin: 20px; width:300px;"
            asp-controller="Home"
-           asp-action="AddNew">Добавить новый рассказ</a>
+           asp-action="AddNew">Добавить новый рассказ</a> *@
 
     </div>
 </div>

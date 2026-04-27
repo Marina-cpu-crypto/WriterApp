@@ -29,8 +29,9 @@ namespace WriterApp.Controllers
         {
             var book = bookRepository.TryGetById(id);
             book.IsDone = !book.IsDone;
-            bookRepository.Change(book);
-            //
+
+            bookRepository.ChangeStatus(book,book.IsDone);
+            
             return RedirectToAction("Index", new { id = id });
         }
         
@@ -52,6 +53,13 @@ namespace WriterApp.Controllers
             bookRepository.Change(book);
 
             return RedirectToAction("Index", new { id = Id });
+        }
+
+        public IActionResult Delete(Guid Id)
+        {
+            bookRepository.Delete(Id);
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

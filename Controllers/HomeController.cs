@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using WriterApp.Data;
+using Microsoft.Extensions.Options;
 using System.Diagnostics;
+using System.Text.Json;
+using WriterApp.Data;
 using WriterApp.Models;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace WriterApp.Controllers
 {
@@ -9,49 +12,50 @@ namespace WriterApp.Controllers
     {
         public Guid MainId;
         ICollectionsRepository collectionsRepository;
+        IBookRepository bookRepository;
+        List<Collection> collections;
+        List<Book> books;
+
+        public HomeController(ICollectionsRepository collectRep, IBookRepository bookRep)
+        {
+            this.collectionsRepository = collectRep;
+            this.bookRepository = bookRep;
+            collections = collectionsRepository.GetAll();
+            books = bookRepository.GetAll();
+        }
 
         public IActionResult Index()
-        { 
-            var collections = collectionsRepository.GetAll();
+        {
             return View(collections);
         }
 
-        public HomeController(ICollectionsRepository collectRep)
+
+        public IActionResult AddNew(string Name,bool IsDone, string? Description, string? PathImage)
         {
-            this.collectionsRepository = collectRep;
+            Book book = new Book(Name,IsDone,Description);
+            if(!string.IsNullOrEmpty(PathImage))  book.PathImage= PathImage;
+            
+            books.Add(book);
+            if (IsDone)
+            {
+                collections[1].Books.Add(book.Id, book.Name);
+                collections[1].Amount++;
+            }
+            else
+            {
+                collections[0].Books.Add(book.Id, book.Name);
+                collections[0].Amount++;
+            }
+
+            var options = new JsonSerializerOptions { WriteIndented = true };
+
+            string newbook = JsonSerializer.Serialize(books, options);
+            string newcoll = JsonSerializer.Serialize(collections, options);
+            System.IO.File.WriteAllText("Data/books.json", newbook);
+            System.IO.File.WriteAllText("Data/collections.json", newcoll);
+
+            return RedirectToAction("Index");
         }
-        //public IActionResult SetMain(Guid id)
-        //{
-        //    MainId = id;
-        //    return RedirectToAction("Index");
-        //}
 
-        public IActionResult AddNew()
-        {
-            //Controller.Json("Ничего");
-            return View();
-        }
-
-
-
-
-
-        //private readonly ILogger<HomeController> _logger;
-
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-        //    _logger = logger;
-        //}
-
-        //public IActionResult Privacy()
-        //{
-        //    return View();
-        //}
-
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
     }
 }
