@@ -35,19 +35,29 @@ namespace WriterApp.Controllers
             return RedirectToAction("Index", new { id = id });
         }
         
-        public IActionResult Save(Guid Id, string Name, string bookText, string Description)
+        public IActionResult ChangeImage(Guid id, string PathImage)
+        {
+            var book = bookRepository.TryGetById(id);
+            book.PathImage = PathImage;
+            bookRepository.Change(book);
+
+            return RedirectToAction("Index","Book" ,new { id = id });
+        }
+
+        public IActionResult Save(Guid Id, string Name, string Author, string Genre, string bookText, string Description)
         {
             Book book = bookRepository.TryGetById(Id);
 
             if(book.Name != Name)
             {
-                System.IO.File.Delete("Data/"+book.Name+".txt");
+                System.IO.File.Delete("Data/Texts/"+book.Name+".txt");
                 book.Name = Name;
             }
-            //book.bookText = bookText;
+            book.Author = Author;
+            book.Genre = Genre;
             book.Description = Description;
 
-            string file = "Data/" + Name + ".txt";
+            string file = "Data/Texts/" + Name + ".txt";
             System.IO.File.WriteAllText(file, bookText);
 
             bookRepository.Change(book);

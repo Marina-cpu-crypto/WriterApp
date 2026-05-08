@@ -30,9 +30,9 @@ namespace WriterApp.Controllers
         }
 
 
-        public IActionResult AddNew(string Name,bool IsDone, string? Description, string? PathImage)
+        public IActionResult AddNew(string Name, string Author, string Genre, bool IsDone, string? Description, string? PathImage)
         {
-            Book book = new Book(Name,IsDone,Description);
+            Book book = new Book(Name,Author, Genre, IsDone, Description);
             if(!string.IsNullOrEmpty(PathImage))  book.PathImage= PathImage;
             
             books.Add(book);

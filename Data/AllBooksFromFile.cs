@@ -47,42 +47,17 @@ namespace WriterApp.Data
             }
             this.Resave();
         }
+
         public void Change(Book book)
         {
-            //collections = new List<Collection>()
-            //{
-            //    new Collection(0,"В процессе"),
-            //    new Collection(1,"Завершено")
-            //};
-
-            //for (int i=0;i<books.Count;i++)
-            //{
-            //    if (books[i].Id == book.Id)
-            //    {
-            //        if (book.IsDone && !books[i].IsDone)
-            //        {
-            //            collections[1].Books.Add(book.Id, book.Name);
-            //            collections[0].Books.Remove(book.Id);
-
-            //            collections[1].Amount++;
-            //            collections[0].Amount--;
-            //        }
-            //        else
-            //        {
-            //            if(!book.IsDone && books[i].IsDone)
-            //            {
-            //                collections[0].Books.Add(book.Id, book.Name);
-            //                collections[1].Books.Remove(book.Id);
-
-            //                collections[0].Amount++;
-            //                collections[1].Amount--;
-            //            }
-            //        }
-
-            //        books[i] = book;
-            //        break;
-            //    }
-            //}
+            if(book.IsDone)
+            {
+                collections[1].Books[book.Id] = book.Name;
+            }
+            else
+            {
+                collections[0].Books[book.Id] = book.Name;
+            }
 
             this.Resave();
         }
@@ -93,7 +68,7 @@ namespace WriterApp.Data
             {
                 if (books[i].Id == id)
                 {
-                    System.IO.File.Delete("Data/" + books[i].Name + ".txt");
+                    System.IO.File.Delete("Data/Texts/" + books[i].Name + ".txt");
 
                     if (books[i].IsDone) collections[1].Books.Remove(id);
                     else collections[0].Books.Remove(id);

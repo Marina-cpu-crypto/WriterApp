@@ -27,9 +27,11 @@
 
         <form>
             <input required placeholder="Название" name="Name" />
-            <input required placeholder="Статус" name="IsDone" />
+            <input required placeholder="Автор" name="Author" />
+            <input required placeholder="Жанр" name="Genre" />
+            <input required placeholder="Статус чтения" name="IsDone" />
             <input placeholder="Краткое описание" name="Description" />
-            <input placeholder="" name="PathImage" />
+            <input placeholder="Ссылка на изображение" name="PathImage" />
 
             <button type="submit" asp-controller="Home" asp-action="AddNew">Добавить новый рассказ</button>
         </form>
