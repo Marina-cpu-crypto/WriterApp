@@ -7,6 +7,7 @@
         public string Author { get; set; }
         public string Genre { get; set; }
         public bool IsDone { get; set; }
+        public int Rating { get; set; }
         public string Description { get; set; } = "";
         public string? PathImage { get; set; } = "";
 

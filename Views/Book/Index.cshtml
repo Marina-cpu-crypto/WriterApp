@@ -39,6 +39,15 @@
             asp-action="ChangeStatus"
             asp-route-id="@Model.Id">Сменить статус</a><p></p>
 
+            <form>
+                <input type="number" name="rating" placeholder="Оценка"/>
+                <button class="btn btn-outline-success"
+                        type="submit"
+                        asp-controller="Book"
+                        asp-action="SetRating"
+                        asp-route-Id="@Model.Id">Сохранить</button>
+            </form>
+
             <a class="btn btn-primary"
             style="margin: 20px; width:300px;"
             asp-controller="Book"

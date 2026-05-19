@@ -34,7 +34,17 @@ namespace WriterApp.Controllers
             
             return RedirectToAction("Index", new { id = id });
         }
-        
+
+        public IActionResult SetRating(Guid id, int rating)
+        {
+            var book = bookRepository.TryGetById(id);
+            book.Rating = rating;
+
+            bookRepository.Resave();
+
+            return RedirectToAction("Index", new { id = id });
+        }
+
         public IActionResult ChangeImage(Guid id, string PathImage)
         {
             var book = bookRepository.TryGetById(id);

@@ -4,7 +4,8 @@
     "Name": "Hero",
     "Author": null,
     "Genre": null,
-    "IsDone": false,
+    "IsDone": true,
+    "Rating": 0,
     "Description": "Barsssssssssss",
     "PathImage": "/images/Mziry.png",
     "rating": [
@@ -22,6 +23,7 @@
     "Author": null,
     "Genre": null,
     "IsDone": true,
+    "Rating": 0,
     "Description": "NewDescript",
     "PathImage": "/images/mini-Ghost.jpg",
     "rating": [
@@ -39,8 +41,9 @@
     "Author": "Me",
     "Genre": "Speed",
     "IsDone": true,
+    "Rating": 0,
     "Description": "NewDescript!!!!!!!!!!!!!!!!!",
-    "PathImage": "https://images.hindustantimes.com/auto/img/2022/12/13/600x338/Ferrari_SF90_Stradale_1670907443596_1670907541988_1670907541988.jpeg",
+    "PathImage": "https://images.ctfassets.net/lzny33ho1g45/4voBbskETv5HyFtBaoGIWJ/73f98fe137cae93720faed58961185a7/deepseek-hero.jpg?fm=jpg\u0026q=31\u0026fit=thumb\u0026w=1520\u0026h=760",
     "rating": [
       1,
       2,
@@ -56,6 +59,7 @@
     "Author": "Calliope",
     "Genre": "War",
     "IsDone": true,
+    "Rating": 5,
     "Description": "Victory",
     "PathImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1971zol_Ff0LWhUNQBaxXNnUo4ZrD1bkYUONEKZd06keiOiNtixGOMS98ntcDwrwytfhldfB8qQsUTsLWYN8OJN7BUsq9o-mHT7caGZs\u0026s",
     "rating": [

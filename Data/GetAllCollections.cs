@@ -19,6 +19,7 @@ namespace WriterApp.Data
             string jsonString = File.ReadAllText("Data/collections.json");
             collections = JsonSerializer.Deserialize<List<Collection>>(jsonString);
 
+            
             return collections;
         }
 
