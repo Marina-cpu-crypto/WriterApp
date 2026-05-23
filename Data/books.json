@@ -22,7 +22,7 @@
     "Name": "Ghost",
     "Author": null,
     "Genre": null,
-    "IsDone": true,
+    "IsDone": false,
     "Rating": 0,
     "Description": "NewDescript",
     "PathImage": "/images/mini-Ghost.jpg",
@@ -62,6 +62,24 @@
     "Rating": 5,
     "Description": "Victory",
     "PathImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1971zol_Ff0LWhUNQBaxXNnUo4ZrD1bkYUONEKZd06keiOiNtixGOMS98ntcDwrwytfhldfB8qQsUTsLWYN8OJN7BUsq9o-mHT7caGZs\u0026s",
+    "rating": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "PageNumber": null
+  },
+  {
+    "Id": "5267c349-ec8f-4520-a6e2-518e0fc7f6d5",
+    "Name": "Leon",
+    "Author": "Capcom",
+    "Genre": "\u042D\u043A\u0448\u0435\u043D",
+    "IsDone": false,
+    "Rating": 0,
+    "Description": null,
+    "PathImage": "",
     "rating": [
       1,
       2,

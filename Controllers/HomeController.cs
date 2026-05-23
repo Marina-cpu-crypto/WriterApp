@@ -28,8 +28,14 @@ namespace WriterApp.Controllers
         {
             return View(collections);
         }
-
-
+        public IActionResult Add()
+        {
+            return View();
+        }
+        public IActionResult ViewAll()
+        {
+            return RedirectToAction("Index");
+        }
         public IActionResult AddNew(string Name, string Author, string Genre, bool IsDone, string? Description, string? PathImage)
         {
             Book book = new Book(Name,Author, Genre, IsDone, Description);
@@ -55,6 +61,20 @@ namespace WriterApp.Controllers
             System.IO.File.WriteAllText("Data/collections.json", newcoll);
 
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Search(string Name)
+        {
+            if (string.IsNullOrEmpty(Name)) return RedirectToAction("Index");
+            else
+            {
+                List<Collection> newcoll = collectionsRepository.GetAll();
+                foreach (var c in newcoll)
+                {
+                    foreach(var b in c.Books) if(!b.Value.Contains(Name)) newcoll[c.Id].Books.Remove(b.Key);
+                }
+                return View(newcoll);
+            }
         }
 
     }

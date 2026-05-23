@@ -2,18 +2,20 @@
   {
     "Id": 0,
     "Name": "\u0412 \u043F\u0440\u043E\u0446\u0435\u0441\u0441\u0435",
-    "Amount": 0,
-    "Books": {}
+    "Amount": 2,
+    "Books": {
+      "8541406f-951d-4491-9b33-e710a7117929": "Ghost",
+      "5267c349-ec8f-4520-a6e2-518e0fc7f6d5": "Leon"
+    }
   },
   {
     "Id": 1,
     "Name": "\u0417\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u043E",
-    "Amount": 4,
+    "Amount": 3,
     "Books": {
-        "8541406f-951d-4491-9b33-e710a7117929": "Ghost",
-        "4d3ed2a9-3881-4a64-a627-d6cf0cf5aa05": "Sparts!!!!",
-        "96db904e-bcc5-47da-b3e8-256fcdb6ecc8": "Better",
-        "8541406f-951d-4491-9b33-e710a7117928": "Hero"
+      "4d3ed2a9-3881-4a64-a627-d6cf0cf5aa05": "Sparts!!!!",
+      "96db904e-bcc5-47da-b3e8-256fcdb6ecc8": "Better",
+      "8541406f-951d-4491-9b33-e710a7117928": "Hero"
     }
   }
 ]

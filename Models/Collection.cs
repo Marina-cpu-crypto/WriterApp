@@ -14,6 +14,6 @@
         public int Amount { get; set; } = 0;
         public Dictionary<Guid,string> Books { get; set; } = new Dictionary<Guid,string>();
 
-        
+        //public List<Book> Books { get; set; } = new List<Book>();
     }
 }
