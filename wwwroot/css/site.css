@@ -25,6 +25,24 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
 
-    .book-card:hover .book-info {
+.book-card:hover .book-info {
         opacity: 1;
-    }
+}
+
+.book-card {
+    transition: 0.3s;
+}
+
+.book-info {
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.book-card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.book-card:hover .book-info {
+        opacity: 1;
+}
