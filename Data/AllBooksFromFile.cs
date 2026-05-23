@@ -86,6 +86,7 @@ namespace WriterApp.Data
             string newbooks = JsonSerializer.Serialize(books, options);
             File.WriteAllText("Data/books.json", newbooks);
 
+            this.Sort();
             string newcol = JsonSerializer.Serialize(collections, options);
             File.WriteAllText("Data/collections.json", newcol);
         }
@@ -101,6 +102,11 @@ namespace WriterApp.Data
                     break;
                 }
             }
+        }
+        public void Sort()
+        {
+            collections[0].Books.OrderByDescending(b => b.Rating);
+            collections[1].Books.OrderByDescending(b => b.Rating);
         }
     }
 }

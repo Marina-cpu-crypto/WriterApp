@@ -11,7 +11,7 @@
         public string Description { get; set; } = "";
         public string? PathImage { get; set; } = "";
 
-        public int[] rating {  get; set; } = new int[5] {1,2,3,4,5};
+        //public int[] rating {  get; set; } = new int[5] {1,2,3,4,5};
         public int? PageNumber { get; set; }
 
 

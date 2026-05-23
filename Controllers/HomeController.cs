@@ -26,6 +26,7 @@ namespace WriterApp.Controllers
 
         public IActionResult Index()
         {
+            bookRepository.Sort();
             return View(collections);
         }
         public IActionResult Add()
@@ -63,9 +64,9 @@ namespace WriterApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Search(string Name)
+        public IActionResult Search(string Name, string Author, string Genre, string Description, int from, int to)
         {
-            if (string.IsNullOrEmpty(Name)) return RedirectToAction("Index");
+            if ((from==0 && to==0) && string.IsNullOrEmpty(Name) && string.IsNullOrEmpty(Author) && string.IsNullOrEmpty(Genre) && string.IsNullOrEmpty(Description)) return RedirectToAction("Index");
             else
             {
                 List<Collection> newcoll = new List<Collection>()
@@ -77,7 +78,14 @@ namespace WriterApp.Controllers
                 {
                     foreach (var b in c.Books)
                     {
-                        if (b.Name.Contains(Name)) newcoll[c.Id].Books.Add(b);
+                        bool flag = false;
+                        if (!string.IsNullOrEmpty(Name)) if (b.Name.Contains(Name)) flag = true;
+                        if (!string.IsNullOrEmpty(Author)) if (b.Author.Contains(Author)) flag = true;
+                        if (!string.IsNullOrEmpty(Genre)) if (b.Genre.Contains(Genre)) flag = true;
+                        if (!string.IsNullOrEmpty(Description)) if (b.Description.Contains(Description)) flag = true;
+                        if (from <= b.Rating && b.Rating <= to) flag = true;
+
+                        if (flag)newcoll[c.Id].Books.Add(b);
                     }
                 }
                 return View(newcoll);

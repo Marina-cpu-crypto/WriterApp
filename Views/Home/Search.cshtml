@@ -2,11 +2,6 @@
 
 @{
     ViewData["Title"] = "Home Page";
-
-    // List<Book> list = new List<Book>();
-    // @foreach (Collection item in @Model) foreach (Book book in item.Books) if (!list.Contains(book)) list.Add(book);
-    // Book MainBook = new Book("","","");
-    // @foreach (Book book1 in @list) if (book1.Id == @ViewBag.MainId) MainBook = book1;
 }
 <a class="btn btn-primary"
    style="margin: 20px; width:300px;"
@@ -17,9 +12,12 @@
     <form>
         <p>Укажите для поиска что-либо из следующих элементов:</p>
         <input placeholder="Название" name="Name" />
-        @* <input placeholder="Автор" name="Author" />
+        <input placeholder="Автор" name="Author" />
         <input placeholder="Жанр" name="Genre" />
-        <input placeholder="Краткое описание" name="Description" /> *@
+        <input placeholder="Краткое описание" name="Description" />
+        <p>Оценки:</p>
+        <<input type="number" placeholder="От" name="from" />
+        <input type="number" placeholder="До" name="to" />
 
         <button type="submit" asp-controller="Home" asp-action="Search">Найти</button>
     </form>
@@ -31,7 +29,7 @@
         @foreach (Collection item in @Model)
         {
             <p class="list-group-item">@item.Name</p>
-            foreach (var book in item.Books)
+            foreach (var book in item.Books.OrderByDescending(b => b.Rating).ToList())
             {
                 <a class="btn btn-primary"
                    style="margin: 20px; width:300px;"
@@ -41,11 +39,6 @@
             }
         }
 
-       
-        @* <a class="btn btn-primary"
-           style="margin: 20px; width:300px;"
-           asp-controller="Home"
-           asp-action="AddNew">Добавить новый рассказ</a> *@
 
     </div>
 </div>

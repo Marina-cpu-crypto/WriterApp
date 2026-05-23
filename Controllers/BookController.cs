@@ -40,6 +40,7 @@ namespace WriterApp.Controllers
             var book = bookRepository.TryGetById(id);
             book.Rating = rating;
 
+            bookRepository.Change(book);
             bookRepository.Resave();
 
             return RedirectToAction("Index", new { id = id });
