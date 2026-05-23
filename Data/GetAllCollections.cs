@@ -23,9 +23,6 @@ namespace WriterApp.Data
             return collections;
         }
 
-        //public string? TryGetById(Guid id)
-        //{
-        //    return collections.FirstOrDefault(product => product.Id == id);
-        //}
+        
     }
 }

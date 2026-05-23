@@ -44,12 +44,12 @@ namespace WriterApp.Controllers
             books.Add(book);
             if (IsDone)
             {
-                collections[1].Books.Add(book.Id, book.Name);
+                collections[1].Books.Add(book);
                 collections[1].Amount++;
             }
             else
             {
-                collections[0].Books.Add(book.Id, book.Name);
+                collections[0].Books.Add(book);
                 collections[0].Amount++;
             }
 
@@ -68,10 +68,17 @@ namespace WriterApp.Controllers
             if (string.IsNullOrEmpty(Name)) return RedirectToAction("Index");
             else
             {
-                List<Collection> newcoll = collectionsRepository.GetAll();
-                foreach (var c in newcoll)
+                List<Collection> newcoll = new List<Collection>()
                 {
-                    foreach(var b in c.Books) if(!b.Value.Contains(Name)) newcoll[c.Id].Books.Remove(b.Key);
+                    new Collection(0,"\u0412 \u043F\u0440\u043E\u0446\u0435\u0441\u0441\u0435"),
+                    new Collection(1,"\u0417\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u043E")
+                };
+                foreach (var c in collections)
+                {
+                    foreach (var b in c.Books)
+                    {
+                        if (b.Name.Contains(Name)) newcoll[c.Id].Books.Add(b);
+                    }
                 }
                 return View(newcoll);
             }

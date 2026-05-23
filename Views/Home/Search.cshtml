@@ -31,13 +31,13 @@
         @foreach (Collection item in @Model)
         {
             <p class="list-group-item">@item.Name</p>
-            foreach (var (key, value) in item.Books)
+            foreach (var book in item.Books)
             {
                 <a class="btn btn-primary"
-                       style="margin: 20px; width:300px;"
-                       asp-controller="Book"
-                       asp-action="Index"
-                       asp-route-id="@key">@value</a>
+                   style="margin: 20px; width:300px;"
+                   asp-controller="Book"
+                   asp-action="Index"
+                   asp-route-id="@book.Id">@book.Name</a>
             }
         }
 

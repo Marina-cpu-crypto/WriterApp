@@ -37,11 +37,11 @@
   },
   {
     "Id": "96db904e-bcc5-47da-b3e8-256fcdb6ecc8",
-    "Name": "Better",
+    "Name": "Better)",
     "Author": "Me",
     "Genre": "Speed",
-    "IsDone": true,
-    "Rating": 0,
+    "IsDone": false,
+    "Rating": 4,
     "Description": "NewDescript!!!!!!!!!!!!!!!!!",
     "PathImage": "https://images.ctfassets.net/lzny33ho1g45/4voBbskETv5HyFtBaoGIWJ/73f98fe137cae93720faed58961185a7/deepseek-hero.jpg?fm=jpg\u0026q=31\u0026fit=thumb\u0026w=1520\u0026h=760",
     "rating": [
@@ -58,7 +58,7 @@
     "Name": "Sparts!!!!",
     "Author": "Calliope",
     "Genre": "War",
-    "IsDone": true,
+    "IsDone": false,
     "Rating": 5,
     "Description": "Victory",
     "PathImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1971zol_Ff0LWhUNQBaxXNnUo4ZrD1bkYUONEKZd06keiOiNtixGOMS98ntcDwrwytfhldfB8qQsUTsLWYN8OJN7BUsq9o-mHT7caGZs\u0026s",
@@ -72,11 +72,11 @@
     "PageNumber": null
   },
   {
-    "Id": "5267c349-ec8f-4520-a6e2-518e0fc7f6d5",
+    "Id": "1b1a230b-ce8d-498b-abac-e3a2429338b9",
     "Name": "Leon",
     "Author": "Capcom",
     "Genre": "\u042D\u043A\u0448\u0435\u043D",
-    "IsDone": false,
+    "IsDone": true,
     "Rating": 0,
     "Description": null,
     "PathImage": "",

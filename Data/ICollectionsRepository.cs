@@ -5,6 +5,6 @@ namespace WriterApp.Data
     public interface ICollectionsRepository
     {
         List<Collection> GetAll();
-        //Book? TryGetById(Guid id);
+        //void Remove(Book book, int ind);
     }
 }

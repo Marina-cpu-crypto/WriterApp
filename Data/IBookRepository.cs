@@ -8,7 +8,7 @@ namespace WriterApp.Data
         Book? TryGetById(Guid id);
         void Change(Book book);
         void ChangeStatus(Book book, bool status);
-        void Delete(Guid id);
+        void Delete(Book book);
         void Resave();
     }
 }

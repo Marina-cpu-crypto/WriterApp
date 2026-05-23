@@ -3,19 +3,104 @@
     "Id": 0,
     "Name": "\u0412 \u043F\u0440\u043E\u0446\u0435\u0441\u0441\u0435",
     "Amount": 2,
-    "Books": {
-      "8541406f-951d-4491-9b33-e710a7117929": "Ghost",
-      "5267c349-ec8f-4520-a6e2-518e0fc7f6d5": "Leon"
-    }
+    "Books": [
+      {
+        "Id": "96db904e-bcc5-47da-b3e8-256fcdb6ecc8",
+        "Name": "Better)",
+        "Author": "Me",
+        "Genre": "Speed",
+        "IsDone": false,
+        "Rating": 4,
+        "Description": "NewDescript!!!!!!!!!!!!!!!!!",
+        "PathImage": "https://images.ctfassets.net/lzny33ho1g45/4voBbskETv5HyFtBaoGIWJ/73f98fe137cae93720faed58961185a7/deepseek-hero.jpg?fm=jpg\u0026q=31\u0026fit=thumb\u0026w=1520\u0026h=760",
+        "rating": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "PageNumber": null
+      },
+      {
+        "Id": "4d3ed2a9-3881-4a64-a627-d6cf0cf5aa05",
+        "Name": "Sparts!!!!",
+        "Author": "Calliope",
+        "Genre": "War",
+        "IsDone": false,
+        "Rating": 5,
+        "Description": "Victory",
+        "PathImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1971zol_Ff0LWhUNQBaxXNnUo4ZrD1bkYUONEKZd06keiOiNtixGOMS98ntcDwrwytfhldfB8qQsUTsLWYN8OJN7BUsq9o-mHT7caGZs\u0026s",
+        "rating": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "PageNumber": null
+      },
+      {
+        "Id": "8541406f-951d-4491-9b33-e710a7117929",
+        "Name": "Ghost",
+        "Author": null,
+        "Genre": null,
+        "IsDone": false,
+        "Rating": 0,
+        "Description": "NewDescript",
+        "PathImage": "/images/mini-Ghost.jpg",
+        "rating": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "PageNumber": null
+      }
+    ]
   },
   {
     "Id": 1,
     "Name": "\u0417\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u043E",
     "Amount": 3,
-    "Books": {
-      "4d3ed2a9-3881-4a64-a627-d6cf0cf5aa05": "Sparts!!!!",
-      "96db904e-bcc5-47da-b3e8-256fcdb6ecc8": "Better",
-      "8541406f-951d-4491-9b33-e710a7117928": "Hero"
-    }
+    "Books": [
+      {
+        "Id": "8541406f-951d-4491-9b33-e710a7117928",
+        "Name": "Hero",
+        "Author": null,
+        "Genre": null,
+        "IsDone": true,
+        "Rating": 0,
+        "Description": "Barsssssssssss",
+        "PathImage": "/images/Mziry.png",
+        "rating": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "PageNumber": null
+      },
+      {
+        "Id": "1b1a230b-ce8d-498b-abac-e3a2429338b9",
+        "Name": "Leon",
+        "Author": "Capcom",
+        "Genre": "\u042D\u043A\u0448\u0435\u043D",
+        "IsDone": true,
+        "Rating": 0,
+        "Description": null,
+        "PathImage": "",
+        "rating": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "PageNumber": null
+      }
+    ]
   }
 ]

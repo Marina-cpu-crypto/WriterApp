@@ -77,7 +77,8 @@ namespace WriterApp.Controllers
 
         public IActionResult Delete(Guid Id)
         {
-            bookRepository.Delete(Id);
+            var book = bookRepository.TryGetById(Id);
+            bookRepository.Delete(book);
 
             return RedirectToAction("Index", "Home");
         }

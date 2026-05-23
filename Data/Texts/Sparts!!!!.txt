@@ -1,1 +1,0 @@
-<p>     <label>Изображение-обложка</label><br />     <img src="@Model.PathImage" style="width:350px; height:350px; margin:30px;" />

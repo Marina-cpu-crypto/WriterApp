@@ -29,18 +29,18 @@ namespace WriterApp.Data
         }
         public void ChangeStatus(Book book, bool status)
         {
-            if(status)
+            if (status)
             {
-                collections[1].Books.Add(book.Id, book.Name);
-                collections[0].Books.Remove(book.Id);
+                collections[1].Books.Add(book);
+                this.RemoveBookFromCollection(book, 0);
 
                 collections[1].Amount++;
                 collections[0].Amount--;
             }
             else
             {
-                collections[0].Books.Add(book.Id, book.Name);
-                collections[1].Books.Remove(book.Id);
+                collections[0].Books.Add(book);
+                this.RemoveBookFromCollection(book, 1);
 
                 collections[0].Amount++;
                 collections[1].Amount--;
@@ -50,28 +50,25 @@ namespace WriterApp.Data
 
         public void Change(Book book)
         {
-            if(book.IsDone)
-            {
-                collections[1].Books[book.Id] = book.Name;
-            }
-            else
-            {
-                collections[0].Books[book.Id] = book.Name;
-            }
+            int ind = 0;
+            if (book.IsDone) ind = 1;
+
+            this.RemoveBookFromCollection(book, ind);
+            collections[ind].Books.Add(book);
 
             this.Resave();
         }
 
-        public void Delete(Guid id)
+        public void Delete(Book book)
         {
             for (int i = 0; i < books.Count; i++)
             {
-                if (books[i].Id == id)
+                if (books[i].Id == book.Id)
                 {
                     System.IO.File.Delete("Data/Texts/" + books[i].Name + ".txt");
 
-                    if (books[i].IsDone) collections[1].Books.Remove(id);
-                    else collections[0].Books.Remove(id);
+                    if (books[i].IsDone) RemoveBookFromCollection(book,1);
+                    else this.RemoveBookFromCollection(book,0);
 
                     books.RemoveAt(i);
                     break;
@@ -91,6 +88,19 @@ namespace WriterApp.Data
 
             string newcol = JsonSerializer.Serialize(collections, options);
             File.WriteAllText("Data/collections.json", newcol);
+        }
+
+        public void RemoveBookFromCollection(Book book, int ind)
+        {
+            for (int i = 0; i < collections[ind].Books.Count; i++)
+            {
+                if (collections[ind].Books[i].Id == book.Id)
+                {
+                    collections[ind].Books.RemoveAt(i);
+                    //collections[ind].Books.Add(book);
+                    break;
+                }
+            }
         }
     }
 }
