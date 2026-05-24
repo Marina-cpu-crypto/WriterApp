@@ -91,3 +91,18 @@ footer {
     background: #dfe3e8;
     color: black;
 }
+.compact-input {
+    width: 150px;
+}
+
+.select-input {
+    appearance: none;
+    cursor: pointer;
+}
+.placeholder-select {
+    color: #6c757d;
+}
+
+.image-input {
+    width: 190px;
+}
