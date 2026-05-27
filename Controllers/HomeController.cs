@@ -26,7 +26,8 @@ namespace WriterApp.Controllers
 
         public IActionResult Index()
         {
-            bookRepository.Sort();
+            //bookRepository.Sort();
+            collectionsRepository.ResetCollection();
             return View(collections);
         }
         public IActionResult Add()

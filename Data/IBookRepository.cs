@@ -10,6 +10,6 @@ namespace WriterApp.Data
         void ChangeStatus(Book book, bool status);
         void Delete(Book book);
         void Resave();
-        void Sort();
+        //void Sort();
     }
 }

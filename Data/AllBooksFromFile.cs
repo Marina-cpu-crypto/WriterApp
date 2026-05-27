@@ -27,6 +27,7 @@ namespace WriterApp.Data
         {
             return books.FirstOrDefault(book => book.Id == id);
         }
+
         public void ChangeStatus(Book book, bool status)
         {
             if (status)
@@ -86,7 +87,7 @@ namespace WriterApp.Data
             string newbooks = JsonSerializer.Serialize(books, options);
             File.WriteAllText("Data/books.json", newbooks);
 
-            this.Sort();
+            //this.Sort();
             string newcol = JsonSerializer.Serialize(collections, options);
             File.WriteAllText("Data/collections.json", newcol);
         }
@@ -103,10 +104,10 @@ namespace WriterApp.Data
                 }
             }
         }
-        public void Sort()
-        {
-            collections[0].Books.OrderByDescending(b => b.Rating);
-            collections[1].Books.OrderByDescending(b => b.Rating);
-        }
+        //public void Sort()
+        //{
+        //    collections[0].Books.OrderByDescending(b => b.Rating);
+        //    collections[1].Books.OrderByDescending(b => b.Rating);
+        //}
     }
 }

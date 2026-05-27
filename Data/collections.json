@@ -2,7 +2,7 @@
   {
     "Id": 0,
     "Name": "\u0412 \u043F\u0440\u043E\u0446\u0435\u0441\u0441\u0435",
-    "Amount": 2,
+    "Amount": 3,
     "Books": [
       {
         "Id": "96db904e-bcc5-47da-b3e8-256fcdb6ecc8",
@@ -42,19 +42,8 @@
   {
     "Id": 1,
     "Name": "\u0417\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u043E",
-    "Amount": 3,
+    "Amount": 2,
     "Books": [
-      {
-        "Id": "1b1a230b-ce8d-498b-abac-e3a2429338b9",
-        "Name": "Leon",
-        "Author": "Capcom",
-        "Genre": "\u042D\u043A\u0448\u0435\u043D",
-        "IsDone": true,
-        "Rating": 8,
-        "Description": null,
-        "PathImage": "",
-        "PageNumber": null
-      },
       {
         "Id": "8541406f-951d-4491-9b33-e710a7117928",
         "Name": "Hero",
@@ -64,6 +53,17 @@
         "Rating": 7,
         "Description": "Barsssssssssss",
         "PathImage": "/images/Mziry.png",
+        "PageNumber": null
+      },
+      {
+        "Id": "2f3accd8-ecf8-4ab4-a2fb-20251407f367",
+        "Name": "2",
+        "Author": "4",
+        "Genre": "5",
+        "IsDone": true,
+        "Rating": 0,
+        "Description": null,
+        "PathImage": "",
         "PageNumber": null
       }
     ]

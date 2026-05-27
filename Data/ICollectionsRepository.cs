@@ -6,5 +6,6 @@ namespace WriterApp.Data
     {
         List<Collection> GetAll();
         //void Remove(Book book, int ind);
+        void ResetCollection();
     }
 }
