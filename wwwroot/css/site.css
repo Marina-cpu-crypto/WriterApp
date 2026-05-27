@@ -21,8 +21,38 @@ body {
     margin-bottom: 60px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+
+.navbar-brand-custom {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #0077cc !important;
+    letter-spacing: -0.3px;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.navbar-brand-custom:hover {
+    color: #1b6ec2 !important;
+    background-color: rgba(0, 119, 204, 0.08);
+    transform: translateY(-2px);
+
+}
 footer {
     text-align: center;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
 }
 
 .book-card {
@@ -90,4 +120,19 @@ footer {
 .reset-button:hover {
     background: #dfe3e8;
     color: black;
+}
+.compact-input {
+    width: 150px;
+}
+
+.select-input {
+    appearance: none;
+    cursor: pointer;
+}
+.placeholder-select {
+    color: #6c757d;
+}
+
+.image-input {
+    width: 190px;
 }
