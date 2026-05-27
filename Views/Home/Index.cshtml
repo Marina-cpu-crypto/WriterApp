@@ -2,44 +2,84 @@
 
 @{
     ViewData["Title"] = "Home Page";
-    
 }
-<a class="btn btn-primary"
-   style="margin: 20px; width:300px;"
-   asp-controller="Home"
-   asp-action="ViewAll">Показать все книги</a>
 
-<div style="display:flex; flex-direction:row;">
-    <form>
-        <p>Укажите для поиска что-либо из следующих элементов:</p>
-        <input placeholder="Название" name="Name" />
-        <input placeholder="Автор" name="Author" />
-        <input placeholder="Жанр" name="Genre" />
-        <input placeholder="Краткое описание" name="Description" />
-        <p>Оценки:</p>
-        <<input type="number" placeholder="От" name="from" />
-        <input type="number" placeholder="До" name="to" />
+<div style="display:flex; justify-content:center; margin:25px 0;">
 
-        <button type="submit" asp-controller="Home" asp-action="Search">Найти</button>
+    <form method="get"
+          asp-controller="Home"
+          asp-action="Search"
+          style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:18px; border-radius:20px; background:white; box-shadow:0 4px 15px rgba(0,0,0,0.12);">
+
+        <input class="search-input" placeholder="Название" name="Name" value="@Context.Request.Query["Name"]" />
+        <input class="search-input" placeholder="Автор" name="Author" value="@Context.Request.Query["Author"]" />
+        <input class="search-input" placeholder="Жанр" name="Genre" value="@Context.Request.Query["Genre"]" />
+        <input class="search-input" placeholder="Описание" name="Description" value="@Context.Request.Query["Description"]" />
+        <input class="search-input small-input" type="number" placeholder="От" name="from" value="@Context.Request.Query["from"]" />
+        <input class="search-input small-input" type="number" placeholder="До" name="to" value="@Context.Request.Query["to"]" />
+        <button type="submit" class="search-button">
+            Найти
+        </button>
+
+        <a class="reset-button"
+           asp-controller="Home"
+           asp-action="ViewAll">
+            Все книги
+        </a>
+
     </form>
+
 </div>
 
+<div style="padding:30px;">
 
-<div style="display:flex; flex-direction:row;">
-    <div class="text-center" style="width: 18rem; margin-inline: 2rem">
-        @foreach (Collection item in @Model)
-        {
-            <p class="list-group-item">@item.Name</p>
-            var books = item.Books.OrderByDescending(b => b.Rating).ToList();
-            foreach (var book in books)
-            {
-                <a class="btn btn-primary"
-                       style="margin: 20px; width:300px;"
-                       asp-controller="Book"
-                       asp-action="Index"
-                       asp-route-id="@book.Id">@book.Name</a>
+    @foreach (Collection item in Model)
+    {
+        <div style="margin-bottom:60px;">
+
+            <h2 style="margin-bottom:30px; font-weight:700; font-size:32px;">
+                @item.Name
+            </h2>
+
+            @{
+                var books = item.Books.OrderByDescending(b => b.Rating).ToList();
             }
-        }
 
-    </div>
+            <div style="display:flex; flex-wrap:wrap; gap:30px;">
+
+                @foreach (var book in books)
+                {
+                    <a asp-controller="Book"
+                       asp-action="Index"
+                       asp-route-id="@book.Id"
+                       style="text-decoration:none;">
+
+                        <div class="book-card"
+                             style="position:relative; width:220px; height:320px; overflow:hidden; border-radius:20px; box-shadow:0 5px 20px rgba(0,0,0,0.25); transition:0.3s; cursor:pointer;">
+
+                            <img src="@book.PathImage"
+                                 style="width:100%; height:100%; object-fit:cover;" />
+
+                            <div class="book-info"
+                                 style="position:absolute; bottom:0; left:0; width:100%; padding:20px; background:linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0)); color:white;">
+
+                                <h4 style="margin:0; font-size:22px; font-weight:700;">
+                                    @book.Name
+                                </h4>
+
+                                <p style="margin-top:5px; font-size:16px;">
+                                    @book.Author
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+                }
+
+            </div>
+        </div>
+    }
+
 </div>

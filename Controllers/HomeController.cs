@@ -40,7 +40,7 @@ namespace WriterApp.Controllers
         }
         public IActionResult AddNew(string Name, string Author, string Genre, bool IsDone, string? Description, string? PathImage)
         {
-            Book book = new Book(Name,Author, Genre, IsDone, Description);
+            Book book = new Book(Name,Author, Genre, IsDone, Description ?? "");
             if(!string.IsNullOrEmpty(PathImage))  book.PathImage= PathImage;
             
             books.Add(book);
@@ -80,10 +80,10 @@ namespace WriterApp.Controllers
                     foreach (var b in c.Books)
                     {
                         bool flag = false;
-                        if (!string.IsNullOrEmpty(Name)) if (b.Name.Contains(Name)) flag = true;
-                        if (!string.IsNullOrEmpty(Author)) if (b.Author.Contains(Author)) flag = true;
-                        if (!string.IsNullOrEmpty(Genre)) if (b.Genre.Contains(Genre)) flag = true;
-                        if (!string.IsNullOrEmpty(Description)) if (b.Description.Contains(Description)) flag = true;
+                        if (!string.IsNullOrEmpty(Name)) if (b.Name.Contains(Name, StringComparison.OrdinalIgnoreCase)) flag = true;
+                        if (!string.IsNullOrEmpty(Author)) if (b.Author.Contains(Author, StringComparison.OrdinalIgnoreCase)) flag = true;
+                        if (!string.IsNullOrEmpty(Genre)) if (b.Genre.Contains(Genre, StringComparison.OrdinalIgnoreCase)) flag = true;
+                        if (!string.IsNullOrEmpty(Description)) if (b.Description.Contains(Description, StringComparison.OrdinalIgnoreCase)) flag = true;
                         if (from <= b.Rating && b.Rating <= to) flag = true;
 
                         if (flag)newcoll[c.Id].Books.Add(b);
