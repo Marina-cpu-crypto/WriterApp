@@ -2,18 +2,21 @@
 using System.Text.Json;
 using WriterApp.Data;
 using WriterApp.Models;
+using WriterApp.Controllers;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WriterApp.Data
 {
     public class AllBooksFromFile : IBookRepository
     {
+        ICollectionsRepository collectionsRepository;
+        public Guid MainId = Guid.Parse(File.ReadAllText("Data/MainId.txt"));
         private static List<Book> books = new List<Book>();
         private static List<Collection> collections;
 
         public AllBooksFromFile(ICollectionsRepository collectRep)
         {
-            collections = collectRep.GetAll();
+            collections = collectRep.GetOne(MainId);
             string jsonString = File.ReadAllText("Data/books.json");
             books = JsonSerializer.Deserialize<List<Book>>(jsonString);
         }
@@ -87,9 +90,10 @@ namespace WriterApp.Data
             string newbooks = JsonSerializer.Serialize(books, options);
             File.WriteAllText("Data/books.json", newbooks);
 
+            collectionsRepository.ResaveUserData(collections);
             //this.Sort();
-            string newcol = JsonSerializer.Serialize(collections, options);
-            File.WriteAllText("Data/collections.json", newcol);
+            //string newcol = JsonSerializer.Serialize(collections, options);
+            //File.WriteAllText("Data/collections.json", newcol);
         }
 
         public void RemoveBookFromCollection(Book book, int ind)

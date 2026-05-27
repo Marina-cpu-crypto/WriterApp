@@ -10,24 +10,26 @@ namespace WriterApp.Controllers
 {
     public class HomeController : Controller
     {
-        public Guid MainId;
+        public Guid MainId = Guid.Parse(System.IO.File.ReadAllText("Data/MainId.txt"));
         ICollectionsRepository collectionsRepository;
         IBookRepository bookRepository;
         List<Collection> collections;
         List<Book> books;
-
         public HomeController(ICollectionsRepository collectRep, IBookRepository bookRep)
         {
             this.collectionsRepository = collectRep;
             this.bookRepository = bookRep;
-            collections = collectionsRepository.GetAll();
+
+            collections = collectionsRepository.GetOne(MainId);
             books = bookRepository.GetAll();
+
         }
 
         public IActionResult Index()
         {
             //bookRepository.Sort();
-            collectionsRepository.ResetCollection();
+            //collectionsRepository.ResetCollection();
+
             return View(collections);
         }
         public IActionResult Add()
@@ -58,9 +60,10 @@ namespace WriterApp.Controllers
             var options = new JsonSerializerOptions { WriteIndented = true };
 
             string newbook = JsonSerializer.Serialize(books, options);
-            string newcoll = JsonSerializer.Serialize(collections, options);
+            //string newcoll = JsonSerializer.Serialize(collections, options);
             System.IO.File.WriteAllText("Data/books.json", newbook);
-            System.IO.File.WriteAllText("Data/collections.json", newcoll);
+            //System.IO.File.WriteAllText("Data/collections.json", newcoll);
+            collectionsRepository.ResaveUserData(collections);
 
             return RedirectToAction("Index");
         }
