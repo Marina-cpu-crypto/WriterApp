@@ -8,7 +8,7 @@ namespace WriterApp.Controllers
     public class BookController : Controller
     {
         IBookRepository bookRepository;
-
+        public Guid MainId = Guid.Parse(System.IO.File.ReadAllText("Data/MainId.txt"));
         public IActionResult Index(Guid id)
         {
             var book = bookRepository.TryGetById(id);
@@ -61,14 +61,14 @@ namespace WriterApp.Controllers
 
             if(book.Name != Name)
             {
-                System.IO.File.Delete("Data/Texts/"+book.Name+".txt");
+                System.IO.File.Delete("Data/"+MainId+"/Texts/"+book.Name+".txt");
                 book.Name = Name;
             }
             book.Author = Author;
             book.Genre = Genre;
             book.Description = Description;
 
-            string file = "Data/Texts/" + Name + ".txt";
+            string file = "Data/" + MainId + "/Texts/" + Name + ".txt";
             System.IO.File.WriteAllText(file, bookText);
 
             bookRepository.Change(book);

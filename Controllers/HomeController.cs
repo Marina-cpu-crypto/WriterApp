@@ -61,7 +61,7 @@ namespace WriterApp.Controllers
 
             string newbook = JsonSerializer.Serialize(books, options);
             //string newcoll = JsonSerializer.Serialize(collections, options);
-            System.IO.File.WriteAllText("Data/books.json", newbook);
+            System.IO.File.WriteAllText("Data/" + MainId + "/books.json", newbook);
             //System.IO.File.WriteAllText("Data/collections.json", newcoll);
 
 

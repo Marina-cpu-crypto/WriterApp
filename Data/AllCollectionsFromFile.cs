@@ -37,7 +37,7 @@ namespace WriterApp.Data
 
         public void ResetCollection()
         {
-            string jsonString = File.ReadAllText("Data/books.json");
+            string jsonString = File.ReadAllText("Data/" + MainId + "/books.json");
             List<Book> books = JsonSerializer.Deserialize<List<Book>>(jsonString);
 
             var thiscoll = this.GetOne(MainId);
@@ -54,10 +54,29 @@ namespace WriterApp.Data
             }
 
             var options = new JsonSerializerOptions { WriteIndented = true };
-            string newcol = JsonSerializer.Serialize(collections, options);
-            File.WriteAllText("Data/collections.json", newcol);
+
+            ResaveUserData(thiscoll);
+            //string newcol = JsonSerializer.Serialize(thiscoll, options);
+            //File.WriteAllText("Data/collections.json", newcol);
         }
 
-        
+        public void ResaveUserData(List<Collection> collections)
+        {
+            var options = new JsonSerializerOptions { WriteIndented = true };
+
+            string stringUD = File.ReadAllText("Data/collections.json");
+            List<UserData> Userdatas = JsonSerializer.Deserialize<List<UserData>>(stringUD);
+            for (int i = 0; i < Userdatas.Count; i++)
+            {
+                if (Userdatas[i].DataId == MainId)
+                {
+                    Userdatas[i].Collections = collections;
+                    break;
+                }
+            }
+
+            string newusersdata = JsonSerializer.Serialize(Userdatas, options);
+            File.WriteAllText("Data/collections.json", newusersdata);
+        }
     }
 }

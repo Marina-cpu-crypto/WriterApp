@@ -17,7 +17,7 @@ namespace WriterApp.Data
         public AllBooksFromFile(ICollectionsRepository collectRep)
         {
             collections = collectRep.GetOne(MainId);
-            string jsonString = File.ReadAllText("Data/books.json");
+            string jsonString = File.ReadAllText("Data/" + MainId + "/books.json");
             books = JsonSerializer.Deserialize<List<Book>>(jsonString);
         }
 
@@ -69,7 +69,7 @@ namespace WriterApp.Data
             {
                 if (books[i].Id == book.Id)
                 {
-                    System.IO.File.Delete("Data/Texts/" + books[i].Name + ".txt");
+                    System.IO.File.Delete("Data/" + MainId + "/Texts/" + books[i].Name + ".txt");
 
                     if (books[i].IsDone) RemoveBookFromCollection(book,1);
                     else this.RemoveBookFromCollection(book,0);
@@ -88,7 +88,7 @@ namespace WriterApp.Data
             var options = new JsonSerializerOptions { WriteIndented = true }; // добавляет отступы и переносы строк
 
             string newbooks = JsonSerializer.Serialize(books, options);
-            File.WriteAllText("Data/books.json", newbooks);
+            File.WriteAllText("Data/" + MainId + "/books.json", newbooks);
 
            
             this.ResaveUserData();
@@ -99,6 +99,7 @@ namespace WriterApp.Data
 
         public void RemoveBookFromCollection(Book book, int ind)
         {
+            //collections = collectionsRepository.GetOne(MainId);
             for (int i = 0; i < collections[ind].Books.Count; i++)
             {
                 if (collections[ind].Books[i].Id == book.Id)
