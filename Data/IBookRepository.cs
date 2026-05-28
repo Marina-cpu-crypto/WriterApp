@@ -11,5 +11,6 @@ namespace WriterApp.Data
         void Delete(Book book);
         void Resave();
         //void Sort();
+        void ResaveUserData();
     }
 }

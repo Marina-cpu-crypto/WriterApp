@@ -63,7 +63,21 @@ namespace WriterApp.Controllers
             //string newcoll = JsonSerializer.Serialize(collections, options);
             System.IO.File.WriteAllText("Data/books.json", newbook);
             //System.IO.File.WriteAllText("Data/collections.json", newcoll);
-            collectionsRepository.ResaveUserData(collections);
+
+
+            string stringUD = System.IO.File.ReadAllText("Data/collections.json");
+            List<UserData> Userdatas = JsonSerializer.Deserialize<List<UserData>>(stringUD);
+            for (int i = 0; i < Userdatas.Count; i++)
+            {
+                if (Userdatas[i].DataId == MainId)
+                {
+                    Userdatas[i].Collections = collections;
+                    break;
+                }
+            }
+
+            string newusersdata = JsonSerializer.Serialize(Userdatas, options);
+            System.IO.File.WriteAllText("Data/collections.json", newusersdata);
 
             return RedirectToAction("Index");
         }

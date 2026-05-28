@@ -90,7 +90,8 @@ namespace WriterApp.Data
             string newbooks = JsonSerializer.Serialize(books, options);
             File.WriteAllText("Data/books.json", newbooks);
 
-            collectionsRepository.ResaveUserData(collections);
+           
+            this.ResaveUserData();
             //this.Sort();
             //string newcol = JsonSerializer.Serialize(collections, options);
             //File.WriteAllText("Data/collections.json", newcol);
@@ -113,5 +114,23 @@ namespace WriterApp.Data
         //    collections[0].Books.OrderByDescending(b => b.Rating);
         //    collections[1].Books.OrderByDescending(b => b.Rating);
         //}
+        public void ResaveUserData()
+        {
+            var options = new JsonSerializerOptions { WriteIndented = true };
+
+            string stringUD = File.ReadAllText("Data/collections.json");
+            List<UserData> Userdatas = JsonSerializer.Deserialize<List<UserData>>(stringUD);
+            for (int i = 0; i < Userdatas.Count; i++)
+            {
+                if (Userdatas[i].DataId == MainId)
+                {
+                    Userdatas[i].Collections = collections;
+                    break;
+                }
+            }
+
+            string newusersdata = JsonSerializer.Serialize(Userdatas, options);
+            File.WriteAllText("Data/collections.json", newusersdata);
+        }
     }
 }

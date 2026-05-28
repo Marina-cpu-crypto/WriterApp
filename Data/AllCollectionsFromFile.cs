@@ -6,12 +6,12 @@ using static System.Reflection.Metadata.BlobBuilder;
 
 namespace WriterApp.Data
 {
-    public class GetAllCollections : ICollectionsRepository
+    public class AllCollectionsFromFile : ICollectionsRepository
     {
         public Guid MainId = Guid.Parse(File.ReadAllText("Data/MainId.txt"));
         private static List<UserData> collections = new List<UserData>();
 
-        public GetAllCollections()
+        public AllCollectionsFromFile()
         {
             string jsonString = File.ReadAllText("Data/collections.json");
             collections = JsonSerializer.Deserialize<List<UserData>>(jsonString);
@@ -58,23 +58,6 @@ namespace WriterApp.Data
             File.WriteAllText("Data/collections.json", newcol);
         }
 
-        public void ResaveUserData(List<Collection> collections)
-        {
-            var options = new JsonSerializerOptions { WriteIndented = true };
-
-            string stringUD = File.ReadAllText("Data/collections.json");
-            List<UserData> Userdatas = JsonSerializer.Deserialize<List<UserData>>(stringUD);
-            for (int i = 0; i < Userdatas.Count; i++)
-            {
-                if (Userdatas[i].DataId == MainId)
-                {
-                    Userdatas[i].Collections = collections;
-                    break;
-                }
-            }
-
-            string newusersdata = JsonSerializer.Serialize(Userdatas, options);
-            File.WriteAllText("Data/collections.json", newusersdata);
-        }
+        
     }
 }

@@ -5,7 +5,7 @@
       {
         "Id": 0,
         "Name": "\u0412 \u043F\u0440\u043E\u0446\u0435\u0441\u0441\u0435",
-        "Amount": 3,
+        "Amount": 2,
         "Books": [
           {
             "Id": "96db904e-bcc5-47da-b3e8-256fcdb6ecc8",
@@ -45,7 +45,7 @@
       {
         "Id": 1,
         "Name": "\u0417\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u043E",
-        "Amount": 2,
+        "Amount": 3,
         "Books": [
           {
             "Id": "8541406f-951d-4491-9b33-e710a7117928",
@@ -79,19 +79,8 @@
       {
         "Id": 0,
         "Name": "\u0412 \u043F\u0440\u043E\u0446\u0435\u0441\u0441\u0435",
-        "Amount": 4,
+        "Amount": 2,
         "Books": [
-          {
-            "Id": "96db904e-bcc5-47da-b3e8-256fcdb6ecc8",
-            "Name": "Better)",
-            "Author": "Me",
-            "Genre": "Speed",
-            "IsDone": false,
-            "Rating": 4,
-            "Description": "NewDescript!!!!!!!!!!!!!!!!!",
-            "PathImage": "https://images.ctfassets.net/lzny33ho1g45/4voBbskETv5HyFtBaoGIWJ/73f98fe137cae93720faed58961185a7/deepseek-hero.jpg?fm=jpg\u0026q=31\u0026fit=thumb\u0026w=1520\u0026h=760",
-            "PageNumber": null
-          },
           {
             "Id": "8541406f-951d-4491-9b33-e710a7117929",
             "Name": "Ghost",
@@ -104,25 +93,14 @@
             "PageNumber": null
           },
           {
-            "Id": "1c0436c2-a292-4791-b247-c02ac7ac7ca3",
-            "Name": "2",
-            "Author": "1",
-            "Genre": "1",
+            "Id": "96db904e-bcc5-47da-b3e8-256fcdb6ecc8",
+            "Name": "Better)Yes",
+            "Author": "Me!",
+            "Genre": "Speed!!",
             "IsDone": false,
-            "Rating": 0,
-            "Description": "",
-            "PathImage": "",
-            "PageNumber": null
-          },
-          {
-            "Id": "6ba3d41e-1ce3-41f9-80af-36e02024a89a",
-            "Name": "3",
-            "Author": "1",
-            "Genre": "1",
-            "IsDone": false,
-            "Rating": 0,
-            "Description": "",
-            "PathImage": "",
+            "Rating": 8,
+            "Description": "NewDescript",
+            "PathImage": "https://images.ctfassets.net/lzny33ho1g45/4voBbskETv5HyFtBaoGIWJ/73f98fe137cae93720faed58961185a7/deepseek-hero.jpg?fm=jpg\u0026q=31\u0026fit=thumb\u0026w=1520\u0026h=760",
             "PageNumber": null
           }
         ]
