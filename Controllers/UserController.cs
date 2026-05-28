@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Options;
 using System.Text.Json;
 using WriterApp.Models;
+using System.IO;
 using static System.Reflection.Metadata.BlobBuilder;
 
 namespace WriterApp.Controllers
@@ -18,8 +19,20 @@ namespace WriterApp.Controllers
             var users = JsonSerializer.Deserialize<List<User>>(jsonString);
 
             User user = new User(Name, Email);
+            bool flag = true;
 
-            if (users.Count == 1)
+            foreach (var u in users)
+            {
+                if (u.Email == Email)
+                {
+                    flag = false;
+                    System.IO.File.WriteAllText("Data/MainId.txt", Convert.ToString(u.UserId));
+                    break;
+                }
+
+            }
+
+            if (flag)
             {
                 users.Add(user);
                 UserData userData = new UserData(user.UserId);
@@ -35,18 +48,10 @@ namespace WriterApp.Controllers
 
                 string newusersdata = JsonSerializer.Serialize(Userdatas, options);
                 System.IO.File.WriteAllText("Data/collections.json",newusersdata);
-            }
-            else
-            {
-                foreach (var u in users)
-                {
-                    if (u.Email == Email)
-                    {
-                        System.IO.File.WriteAllText("Data/MainId.txt", Convert.ToString(u.UserId));
-                        break;
-                    }
-                    
-                }
+
+                System.IO.File.WriteAllText("Data/MainId.txt", Convert.ToString(user.UserId));
+                Directory.CreateDirectory("Data/" + Convert.ToString(user.UserId));
+                System.IO.File.WriteAllText("Data/"+user.UserId+"/books.json", "");
             }
             
             return RedirectToAction("Index", "Home");

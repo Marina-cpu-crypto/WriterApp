@@ -57,6 +57,17 @@
             "Description": "Barsssssssssss",
             "PathImage": "/images/Mziry.png",
             "PageNumber": null
+          },
+          {
+            "Id": "bea5e526-6c5f-4bdd-888d-17114864cd93",
+            "Name": "Ada",
+            "Author": "Wong",
+            "Genre": "The Beast",
+            "IsDone": true,
+            "Rating": 0,
+            "Description": "",
+            "PathImage": "",
+            "PageNumber": null
           }
         ]
       }
@@ -68,7 +79,7 @@
       {
         "Id": 0,
         "Name": "\u0412 \u043F\u0440\u043E\u0446\u0435\u0441\u0441\u0435",
-        "Amount": 0,
+        "Amount": -1,
         "Books": [
           {
             "Id": "8541406f-951d-4491-9b33-e710a7117929",
@@ -80,24 +91,13 @@
             "Description": "NewDescript",
             "PathImage": "/images/mini-Ghost.jpg",
             "PageNumber": null
-          },
-          {
-            "Id": "96db904e-bcc5-47da-b3e8-256fcdb6ecc8",
-            "Name": "Better)Yes",
-            "Author": "Me!",
-            "Genre": "Speed!!",
-            "IsDone": false,
-            "Rating": 8,
-            "Description": "NewDescript",
-            "PathImage": "https://images.ctfassets.net/lzny33ho1g45/4voBbskETv5HyFtBaoGIWJ/73f98fe137cae93720faed58961185a7/deepseek-hero.jpg?fm=jpg\u0026q=31\u0026fit=thumb\u0026w=1520\u0026h=760",
-            "PageNumber": null
           }
         ]
       },
       {
         "Id": 1,
         "Name": "\u0417\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u043E",
-        "Amount": 4,
+        "Amount": 5,
         "Books": [
           {
             "Id": "8541406f-951d-4491-9b33-e710a7117928",
@@ -119,6 +119,80 @@
             "Rating": 5,
             "Description": "Victory",
             "PathImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1971zol_Ff0LWhUNQBaxXNnUo4ZrD1bkYUONEKZd06keiOiNtixGOMS98ntcDwrwytfhldfB8qQsUTsLWYN8OJN7BUsq9o-mHT7caGZs\u0026s",
+            "PageNumber": null
+          },
+          {
+            "Id": "96db904e-bcc5-47da-b3e8-256fcdb6ecc8",
+            "Name": "Better)",
+            "Author": "Me!",
+            "Genre": "Speed!!",
+            "IsDone": true,
+            "Rating": 8,
+            "Description": "NewDescript",
+            "PathImage": "https://images.ctfassets.net/lzny33ho1g45/4voBbskETv5HyFtBaoGIWJ/73f98fe137cae93720faed58961185a7/deepseek-hero.jpg?fm=jpg\u0026q=31\u0026fit=thumb\u0026w=1520\u0026h=760",
+            "PageNumber": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "DataId": "81138875-9315-4d91-bd97-816fc623045d",
+    "Collections": [
+      {
+        "Id": 0,
+        "Name": "\u0412 \u043F\u0440\u043E\u0446\u0435\u0441\u0441\u0435",
+        "Amount": 0,
+        "Books": []
+      },
+      {
+        "Id": 1,
+        "Name": "\u0417\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u043E",
+        "Amount": 0,
+        "Books": []
+      }
+    ]
+  },
+  {
+    "DataId": "7b9521d8-ad45-4b6e-9c7a-efd4d77ce297",
+    "Collections": [
+      {
+        "Id": 0,
+        "Name": "\u0412 \u043F\u0440\u043E\u0446\u0435\u0441\u0441\u0435",
+        "Amount": 0,
+        "Books": []
+      },
+      {
+        "Id": 1,
+        "Name": "\u0417\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u043E",
+        "Amount": 0,
+        "Books": []
+      }
+    ]
+  },
+  {
+    "DataId": "f7cf7a9c-c849-40f0-8bd1-d3f1accc3db0",
+    "Collections": [
+      {
+        "Id": 0,
+        "Name": "\u0412 \u043F\u0440\u043E\u0446\u0435\u0441\u0441\u0435",
+        "Amount": 0,
+        "Books": []
+      },
+      {
+        "Id": 1,
+        "Name": "\u0417\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u043E",
+        "Amount": 1,
+        "Books": [
+          {
+            "Id": "bea5e526-6c5f-4bdd-888d-17114864cd93",
+            "Name": "Ada",
+            "Author": "Wong",
+            "Genre": "The Beast",
+            "IsDone": true,
+            "Rating": 0,
+            "Description": "",
+            "PathImage": "",
             "PageNumber": null
           }
         ]
